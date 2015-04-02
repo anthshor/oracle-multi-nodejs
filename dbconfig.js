@@ -57,6 +57,6 @@
 
 module.exports = {
   user          : "hr",
-  password      : "hr",
-  connectString : "fred"
+  password      : "welcome",
+  connectString : "//192.168.33.11:1521/fred"
 };

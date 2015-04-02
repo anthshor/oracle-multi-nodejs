@@ -29,6 +29,7 @@ if [ -d /home/oracle/database ]; then
     echo "Skipping unzipping..."
   else
     echo "Unzipping database software"
+    chmod 644 /vagrant/software/linuxamd64_12102_database*
     su - oracle -c 'unzip -n /vagrant/software/linuxamd64_12102_database_1of2.zip'
     su - oracle -c 'unzip -n /vagrant/software/linuxamd64_12102_database_2of2.zip'
 fi
@@ -145,7 +146,7 @@ export PATH=${PATH}:${ORACLE_HOME}/bin
 
 sqlplus / as sysdba << EOF
 alter user hr account unlock;
-alter user hr identified by hr;
+alter user hr identified by welcome;
 exit
 
 EOF

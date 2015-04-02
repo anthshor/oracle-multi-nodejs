@@ -10,6 +10,7 @@ Vagrant.configure(2) do |config|
     db.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 2048]
     end
+    db.vm.network "private_network", ip: "192.168.33.11"
     db.vm.network "forwarded_port", guest: 8080, host: 8080
     db.vm.network "forwarded_port", guest: 7000, host: 7000
     db.vm.provision "shell",  path: "provision.sh"
@@ -20,7 +21,8 @@ Vagrant.configure(2) do |config|
     web1.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
-    web1.vm.network "forwarded_port", guest: 80, host: 8081
+    web1.vm.network "private_network", ip: "192.168.33.12"
+    web1.vm.network "forwarded_port", guest: 7000, host: 8081
     web1.vm.provision :shell, path: "web_provision.sh"
   end
 
