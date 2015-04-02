@@ -7,8 +7,10 @@
 
 # Install Oracle Instant Client
 yum install libaio
-cd /vagrant/software/; rpm -ivh oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
-cd /vagrant/software/; rpm -ivh oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
+#cd /vagrant/software/; rpm -ivh oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
+#cd /vagrant/software/; rpm -ivh oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
+yum localinstall -y /vagrant/software/oracle-instantclient12.1-basic-12.1.0.2.0-1.x86_64.rpm
+yum localinstall -y /vagrant/software/oracle-instantclient12.1-devel-12.1.0.2.0-1.x86_64.rpm
 
 # Install nodejs
 
