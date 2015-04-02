@@ -21,7 +21,7 @@ Vagrant.configure(2) do |config|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
     web1.vm.network "forwarded_port", guest: 80, host: 8081
-    web1.vm.provision :shell, path: "web-provision.sh"
+    web1.vm.provision :shell, path: "web_provision.sh"
   end
 
 end
