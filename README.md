@@ -1,12 +1,17 @@
-Automated build for an Oracle Database with node.js
----------------------------------------------------
-
+Oracle Database with multiple node.js connecting
+------------------------------------------------
+DB node:
 - Install oracle-rdbms-server-12cR1-preinstall
 - Install DB software
 - Run DBCA
 - Install node.js 
 - Install driver for Oracle
-- Test with an example select
+
+Web Tier(s):
+- Install instant client
+- Install node.js
+- Install driver for Oracle
+
 
 Requires software directory with Oracle binaries already downloaded and contained within it:
 ```bash
@@ -19,13 +24,5 @@ total 4838984
 
 Run
 ---
-```bash
-$ vagrant up
-$ vagrant ssh
-.
-. < lines removed>
-.
-==> default: [ [ 180, 'Construction' ] ]
-==> default: [ { name: 'DEPARTMENT_ID' }, { name: 'DEPARTMENT_NAME' } ]
-==> default: node.js test Succeeded!
-```
+
+Work in progress!
