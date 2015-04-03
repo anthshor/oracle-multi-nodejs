@@ -1,5 +1,5 @@
-Oracle Database with multiple node.js connecting
-------------------------------------------------
+#Multiple node.js -> Oracle DB
+------------------------------
 ##Pre Requirements
 - Vagrant (www.vagrantup.com)
 - VirtualBox 
@@ -11,7 +11,7 @@ linuxamd64_12102_database_1of2.zip				oracle-instantclient12.1-devel-12.1.0.2.0-
 linuxamd64_12102_database_2of2.zip				oracle-instantclient12.1-sqlplus-12.1.0.2.0-1.x86_64.rpm
 ```
 
-##Automatically provisions the following:
+##Summary:
 
 ####DB node (2Gb mem):
 - Install oracle-rdbms-server-12cR1-preinstall
@@ -27,8 +27,8 @@ linuxamd64_12102_database_2of2.zip				oracle-instantclient12.1-sqlplus-12.1.0.2.
 - Run test
 
 ####Background
-A simple test query (web_connect_test.js) is executed from each of the 5 remote web servers and the results are 
-displayed in the browser.
+A simple test query (web_connect_test.js) are executed from each of the 5 remote web servers to the Oracle DB and 
+the results are displayed in the browser.
 
 Run
 ---
