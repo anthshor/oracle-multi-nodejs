@@ -1,19 +1,19 @@
 Oracle Database with multiple node.js connecting
 ------------------------------------------------
-Pre Reqs
+##Pre Reqs
 - Vagrant (www.vagrantup.com)
 - VirtualBox 
 
-Automatically provisions the following:
+##Automatically provisions the following:
 
-DB node (2Gb mem:
+###DB node (2Gb mem:
 - Install oracle-rdbms-server-12cR1-preinstall
 - Install DB software
 - Create database
 - Install node.js  
 - Install node.js driver for Oracle
 
-Web Tier x 5 (1Gb mem each):
+###Web Tier x 5 (1Gb mem each):
 - Install instant client
 - Install node.js
 - Install driver for Oracle
