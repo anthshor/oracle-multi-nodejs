@@ -11,7 +11,7 @@ export PATH=${PATH}:${ORACLE_HOME}/bin
 
 sqlplus / as sysdba << EOF
 alter user hr account unlock;
-alter user hr identified by hr;
+alter user welcome identified by hr;
 exit
 
 EOF

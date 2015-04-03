@@ -135,6 +135,23 @@ else
   chown oracle:oinstall /home/oracle/node-oracledb/examples/dbconfig.js
 fi
 
+# Start listener is it's not started
+
+su - oracle -c 'export ORACLE_SID=fred
+export ORACLE_BASE=/u01/app/oracle
+export ORACLE_HOME=/u01/app/oracle/product/12c
+export PATH=${PATH}:${ORACLE_HOME}/bin
+lsnrctl status
+if [ $? -ne 0 ]; then
+  lsnrctl start
+fi
+
+sqlplus / as sysdba << EOF
+alter system register;
+exit
+
+EOF
+'
 
 # Run test as Oracle
 su - oracle -c 'export NODE_PATH=/usr/lib/node_modules 

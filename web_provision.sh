@@ -7,7 +7,7 @@
 
 # ORA-21561: OID generation failed
 # Requires hostname in /etc/hosts
-# Add hostname to hosts file. 
+# Add hostname to hosts file - thanks Alvaro
 
 if [ `grep -i $hostname /etc/hosts | wc -l` -ne 0 ]; then
     echo "Skipping modifying hosts file, hostname present"
@@ -57,8 +57,11 @@ export NODE_PATH=/usr/lib/node_modules
 node /opt/node-oracledb/examples/select1.js
 if [ $? -ne 0 ]; then
   echo "Something went wrong. Node.js test FAILED"
+  exit
 else
   echo "node.js test Succeeded!"
 fi
 
-
+echo "Starting web connection test in the background"
+node /vagrant/web_connection_test.js >/tmp/web_connection_test.log 2>&1 &
+echo "Web server started with local process = " $! 
