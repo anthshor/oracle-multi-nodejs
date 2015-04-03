@@ -36,11 +36,17 @@ linuxamd64_12102_database_2of2.zip				oracle-instantclient12.1-sqlplus-12.1.0.2.
 Run
 ---
 vagrant up | tee vagrant.log
+
 Open browser for each web node to see if it's worked:
+
 http://localhost:7001/
+
 http://localhost:7002/
+
 http://localhost:7003/
+
 http://localhost:7004/
+
 http://localhost:7005/
 
 
