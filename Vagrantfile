@@ -2,20 +2,21 @@
 # vi: set ft=ruby :
 
 Vagrant.configure(2) do |config|
+
+  config.vm.box = "anthshor/ol6"
   
   config.vm.define "db" do |db|
-    db.vm.box = "kikitux/oracle65-1disk"
     db.vm.hostname = "oracle6"
     db.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 2048]
     end
     db.vm.network "private_network", ip: "192.168.33.11"
     db.vm.network "forwarded_port", guest: 7000, host: 7000
+    db.vm.network "forwarded_port", guest: 8081, host: 8081
     db.vm.provision "shell",  path: "provision.sh"
   end
 
   config.vm.define "web1" do |web1|
-    web1.vm.box = "kikitux/oracle6"
     web1.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
@@ -25,7 +26,6 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "web2" do |web2|
-    web2.vm.box = "kikitux/oracle6"
     web2.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
@@ -35,7 +35,6 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "web3" do |web3|
-    web3.vm.box = "kikitux/oracle6"
     web3.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
@@ -45,7 +44,6 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "web4" do |web4|
-    web4.vm.box = "kikitux/oracle6"
     web4.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
@@ -55,7 +53,6 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define "web5" do |web5|
-    web5.vm.box = "kikitux/oracle6"
     web5.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
