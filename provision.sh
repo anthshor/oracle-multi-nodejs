@@ -28,10 +28,15 @@ fi
 if [ -d /home/oracle/database ]; then
     echo "Skipping unzipping..."
   else
-    echo "Unzipping database software"
-    chmod 644 /vagrant/software/linuxamd64_12102_database*
-    su - oracle -c 'unzip -n /vagrant/software/linuxamd64_12102_database_1of2.zip'
-    su - oracle -c 'unzip -n /vagrant/software/linuxamd64_12102_database_2of2.zip'
+    if [ -f /vagrant/software/linuxamd64_12102_database_1of2.zip ]; then
+      echo "Unzipping database software"
+      chmod 644 /vagrant/software/linuxamd64_12102_database*
+      su - oracle -c 'unzip -n /vagrant/software/linuxamd64_12102_database_1of2.zip'
+      su - oracle -c 'unzip -n /vagrant/software/linuxamd64_12102_database_2of2.zip'
+    else
+      echo "Oracle software not found, exiting..."
+      exit
+    fi
 fi
 
 
