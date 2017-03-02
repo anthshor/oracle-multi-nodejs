@@ -1,5 +1,6 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
+MY_VAR = ENV['MY_VAR']
 
 Vagrant.configure(2) do |config|
 
@@ -13,7 +14,7 @@ Vagrant.configure(2) do |config|
     db.vm.network "private_network", ip: "192.168.33.11"
     db.vm.network "forwarded_port", guest: 7000, host: 7000
     db.vm.network "forwarded_port", guest: 8081, host: 8081
-    db.vm.provision "shell",  path: "provision.sh"
+    db.vm.provision "shell",  path: "provision.sh", args: MY_VAR
   end
 
   config.vm.define "web1" do |web1|

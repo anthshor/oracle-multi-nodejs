@@ -7,7 +7,12 @@
 # Referred to Oracle Install Guide 3.6 Installing Oracle Linux with Public Yum repo
 # http://docs.oracle.com/database/121/LADBI/olinrpm.htm#LADBI7480
 # thanks Alvaro https://github.com/kikitux/stagefiles/blob/master/db/preinstall_crs_db.sh#L1
- 
+
+
+# Proxy
+[ -f /vagrant/proxy.env ] && source /vagrant/proxy.env $1
+
+
 echo "installing oracle-rdbms-server-12cR1-preinstall" 
 echo "installing openssh glibc and git for nodejs"
 PACKAGES="oracle-rdbms-server-12cR1-preinstall openssh glibc git" 
